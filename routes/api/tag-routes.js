@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
     include: [{
         model: Product,
         through: ProductTag,
+        as: "product_tags"
     },],
   })
     .then((tags) => res.status(200).json(tags))
@@ -27,6 +28,7 @@ router.get('/:id', (req, res) => {
     include: [{
         model: Product,
         through: ProductTag,
+        as: "product_tags"
       },
     ],
 

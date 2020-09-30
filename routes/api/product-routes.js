@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
       {
         model: Tag,
         through: ProductTag,
+        as: "product_tags"
       },
 
     ],
@@ -37,8 +38,9 @@ router.get('/:id', (req, res) => {
       {
         model: Tag,
         through: ProductTag,
+        as: "product_tags"
       },
-    ]
+    ],
   })
     .then((products) => res.json(products))
     .catch((err) => {
@@ -133,7 +135,7 @@ router.delete('/:id', (req, res) => {
       res.json(products);
     })
     .catch((err) => {
-      // console.log(err);
+      console.log(err);
       res.status(400).json(err);
     });
 });
